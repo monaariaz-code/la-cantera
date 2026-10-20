@@ -67,6 +67,7 @@
   .capa { display: grid; grid-template-columns: 200px 1fr 56px; align-items: center; gap: 16px; padding: 10px 20px; }
   .capa + .capa { border-top: 1px solid var(--caliza); }
   .capa .nombre { font-weight: 600; }
+  .capa .nombre small { display: block; font-weight: 500; font-size: 13px; color: var(--granito); }
   .capa .pista { background: var(--caliza); height: 18px; }
   .capa .barra { height: 100%; background: var(--granito); }
   .capa:nth-child(1) .barra { background: var(--veta); }
@@ -191,12 +192,18 @@ function listaIdeas(items) {
     </div>`).join('') + '</div>';
 }
 
+function cambio(t) {
+  if (typeof t.cambio_24h !== 'number') return '';
+  const signo = t.cambio_24h > 0 ? '+' : '';
+  return `<small>${signo}${Math.round(t.cambio_24h)}% en las últimas 24 h</small>`;
+}
+
 function estratos(items) {
   if (!items || !items.length) return '<p class="vacio">Sin datos de búsqueda para esta categoría.</p>';
   const orden = [...items].sort((a, b) => b.interes_promedio - a.interes_promedio);
   return '<div class="estratos">' + orden.map(t => `
     <div class="capa">
-      <span class="nombre">${esc(t.palabra_clave)}</span>
+      <span class="nombre">${esc(t.palabra_clave)}${cambio(t)}</span>
       <div class="pista"><div class="barra" style="width:${Math.min(100, t.interes_promedio)}%"></div></div>
       <span class="valor">${Math.round(t.interes_promedio)}</span>
     </div>`).join('') + '</div>';
@@ -217,7 +224,7 @@ function dibujar() {
 
   estado.textContent = usandoEjemplo
     ? 'Mostrando datos de ejemplo. Ejecuta el conector para ver datos reales.'
-    : 'Búsquedas de los últimos 7 días. Actualizado: ' + tendencias.actualizado;
+    : 'Nivel de búsqueda de las últimas 24 h frente al pico de la semana. Actualizado: ' + tendencias.actualizado;
 
   cont.innerHTML =
     (usandoEjemplo ? '<div class="aviso">No se encontró tendencias_la_cantera.json. Estos números son de muestra.</div>' : '') +
