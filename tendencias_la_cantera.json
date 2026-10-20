@@ -1,57 +1,79 @@
 {
   "gastronomia": [
     {
+      "palabra_clave": "recetas",
+      "interes_promedio": 33.8,
+      "cambio_24h": -14.6
+    },
+    {
+      "palabra_clave": "postres",
+      "interes_promedio": 27.8,
+      "cambio_24h": -28.7
+    },
+    {
       "palabra_clave": "restaurantes",
-      "interes_promedio": 24.5
+      "interes_promedio": 19.5,
+      "cambio_24h": -26.2
     },
     {
       "palabra_clave": "comida saludable",
-      "interes_promedio": 0.2
-    },
-    {
-      "palabra_clave": "recetas faciles",
-      "interes_promedio": 0.0
+      "interes_promedio": 6.0,
+      "cambio_24h": -24.0
     },
     {
       "palabra_clave": "street food",
-      "interes_promedio": 0.0
+      "interes_promedio": 0.0,
+      "cambio_24h": null
     }
   ],
   "moda": [
     {
-      "palabra_clave": "streetwear",
-      "interes_promedio": 1.5
+      "palabra_clave": "zapatos",
+      "interes_promedio": 60.2,
+      "cambio_24h": -11.2
     },
     {
-      "palabra_clave": "outfit del dia",
-      "interes_promedio": 0.0
+      "palabra_clave": "outfits",
+      "interes_promedio": 27.0,
+      "cambio_24h": -15.0
     },
     {
       "palabra_clave": "tendencias de moda",
-      "interes_promedio": 0.0
+      "interes_promedio": 0.0,
+      "cambio_24h": null
     },
     {
-      "palabra_clave": "moda sostenible",
-      "interes_promedio": 0.0
+      "palabra_clave": "streetwear",
+      "interes_promedio": 0.0,
+      "cambio_24h": -100.0
     }
   ],
   "deporte": [
     {
+      "palabra_clave": "gimnasio",
+      "interes_promedio": 51.6,
+      "cambio_24h": 4.0
+    },
+    {
+      "palabra_clave": "yoga",
+      "interes_promedio": 36.3,
+      "cambio_24h": 7.4
+    },
+    {
       "palabra_clave": "running",
-      "interes_promedio": 33.3
+      "interes_promedio": 27.1,
+      "cambio_24h": -10.8
     },
     {
       "palabra_clave": "rutina de ejercicio",
-      "interes_promedio": 0.0
+      "interes_promedio": 4.2,
+      "cambio_24h": null
     },
     {
       "palabra_clave": "entrenamiento funcional",
-      "interes_promedio": 0.0
-    },
-    {
-      "palabra_clave": "gimnasio en casa",
-      "interes_promedio": 0.0
+      "interes_promedio": 0.0,
+      "cambio_24h": null
     }
   ],
-  "actualizado": "2026-10-20 01:44"
+  "actualizado": "2026-10-20 17:40"
 }
