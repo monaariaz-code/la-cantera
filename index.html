@@ -80,6 +80,12 @@
   .idea h4 { margin: 2px 0 4px; font-size: 18px; }
   .idea p { margin: 0; color: #3C4A52; }
 
+  .tags { display: flex; flex-direction: column; gap: 8px; }
+  .tag { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; background: var(--blanco); padding: 10px 16px; border-left: 6px solid var(--veta); }
+  .tag.sonido { border-left-color: var(--granito); }
+  .tag .tipo { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--granito); min-width: 62px; }
+  .tag .nombre { font-weight: 700; font-size: 17px; }
+  .tag .nota { color: #3C4A52; font-size: 14px; }
   .aviso { background: var(--blanco); border-left: 6px solid var(--veta); padding: 12px 20px; font-size: 14px; margin-bottom: 24px; }
   .vacio { padding: 20px; color: var(--granito); }
 
@@ -209,6 +215,57 @@ function estratos(items) {
     </div>`).join('') + '</div>';
 }
 
+let manuales = [];
+
+const norm = t => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
+function parsearCSV(texto) {
+  const filas = [];
+  let fila = [], campo = '', enComillas = false;
+  texto = texto.replace(/^\uFEFF/, '');
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i];
+    if (enComillas) {
+      if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
+      else if (c === '"') enComillas = false;
+      else campo += c;
+    } else if (c === '"') enComillas = true;
+    else if (c === ',') { fila.push(campo); campo = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && texto[i + 1] === '\n') i++;
+      fila.push(campo); campo = ''; filas.push(fila); fila = [];
+    } else campo += c;
+  }
+  if (campo || fila.length) { fila.push(campo); filas.push(fila); }
+  const limpias = filas.filter(f => f.some(x => x.trim()));
+  if (!limpias.length) return [];
+  const claves = limpias[0].map(norm);
+  return limpias.slice(1).map(f => Object.fromEntries(claves.map((k, i) => [k, (f[i] || '').trim()])));
+}
+
+function diasDesde(fecha) {
+  const d = new Date(fecha + 'T00:00:00');
+  return isNaN(d) ? null : Math.floor((Date.now() - d) / 86400000);
+}
+
+function bloqueManual(cat) {
+  const filas = manuales.filter(f => norm(f.categoria) === cat && f.nombre);
+  if (!filas.length) return '<p class="vacio">Aún no hay hashtags cargados. Agrégalos en hashtags_manual.csv.</p>';
+  const fechas = filas.map(f => f.fecha).filter(Boolean).sort();
+  const ultima = fechas[fechas.length - 1];
+  const dias = ultima ? diasDesde(ultima) : null;
+  const aviso = (dias !== null && dias > 7)
+    ? `<div class="aviso">Esta lista se actualizó hace ${dias} días. Conviene revisarla.</div>` : '';
+  const items = filas.map(f => `
+    <div class="tag ${norm(f.tipo) === 'sonido' ? 'sonido' : ''}">
+      <span class="tipo">${esc(f.tipo || 'hashtag')}</span>
+      <span class="nombre">${esc(f.nombre)}</span>
+      <span class="nota">${esc(f.nota || '')}</span>
+    </div>`).join('');
+  return aviso + '<div class="tags">' + items + '</div>' +
+    (ultima ? `<p class="estado" style="margin-top:8px">Carga manual · ${esc(ultima)}</p>` : '');
+}
+
 function dibujar() {
   dibujarMenu();
   const cat = CATEGORIAS.find(c => c.id === activa);
@@ -228,15 +285,24 @@ function dibujar() {
 
   cont.innerHTML =
     (usandoEjemplo ? '<div class="aviso">No se encontró tendencias_la_cantera.json. Estos números son de muestra.</div>' : '') +
+    '<h3>Hashtags y sonidos en TikTok</h3>' + bloqueManual(activa) +
     '<h3>Qué está buscando la gente</h3>' + estratos(tendencias[activa]) +
     '<h3>Ideas de contenido</h3>' + listaIdeas(IDEAS[activa]);
 }
 
-fetch('tendencias_la_cantera.json', { cache: 'no-store' })
+const sinCache = { cache: 'no-store' };
+
+const cargarTendencias = fetch('tendencias_la_cantera.json', sinCache)
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(datos => { tendencias = datos; usandoEjemplo = false; })
-  .catch(() => { /* se queda con los datos de ejemplo */ })
-  .finally(dibujar);
+  .catch(() => { /* se queda con los datos de ejemplo */ });
+
+const cargarManuales = fetch('hashtags_manual.csv', sinCache)
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+  .then(texto => { manuales = parsearCSV(texto); })
+  .catch(() => { /* sin archivo, el bloque muestra el aviso de vacío */ });
+
+Promise.all([cargarTendencias, cargarManuales]).then(dibujar);
 </script>
 </body>
 </html>
