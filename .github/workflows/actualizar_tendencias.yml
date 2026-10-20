@@ -1,1 +1,36 @@
 actualizar_tendencias.yml 
+name: Actualizar tendencias La Cantera
+
+on:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install pytrends pandas
+
+      - name: Ejecutar conector
+        run: python conector_google_trends.py
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add tendencias_la_cantera.json
+          git commit -m "Actualizacion automatica de tendencias" || echo "Sin cambios"
+          git push
