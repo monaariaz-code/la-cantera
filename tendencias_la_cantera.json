@@ -1,0 +1,57 @@
+{
+  "gastronomia": [
+    {
+      "palabra_clave": "restaurantes",
+      "interes_promedio": 24.5
+    },
+    {
+      "palabra_clave": "comida saludable",
+      "interes_promedio": 0.2
+    },
+    {
+      "palabra_clave": "recetas faciles",
+      "interes_promedio": 0.0
+    },
+    {
+      "palabra_clave": "street food",
+      "interes_promedio": 0.0
+    }
+  ],
+  "moda": [
+    {
+      "palabra_clave": "streetwear",
+      "interes_promedio": 1.5
+    },
+    {
+      "palabra_clave": "outfit del dia",
+      "interes_promedio": 0.0
+    },
+    {
+      "palabra_clave": "tendencias de moda",
+      "interes_promedio": 0.0
+    },
+    {
+      "palabra_clave": "moda sostenible",
+      "interes_promedio": 0.0
+    }
+  ],
+  "deporte": [
+    {
+      "palabra_clave": "running",
+      "interes_promedio": 33.3
+    },
+    {
+      "palabra_clave": "rutina de ejercicio",
+      "interes_promedio": 0.0
+    },
+    {
+      "palabra_clave": "entrenamiento funcional",
+      "interes_promedio": 0.0
+    },
+    {
+      "palabra_clave": "gimnasio en casa",
+      "interes_promedio": 0.0
+    }
+  ],
+  "actualizado": "2026-10-20 01:44"
+}
