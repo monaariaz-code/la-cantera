@@ -2,23 +2,23 @@
   "gastronomia": [
     {
       "palabra_clave": "recetas",
-      "interes_promedio": 40.5,
-      "cambio_24h": -14.4
+      "interes_promedio": 33.3,
+      "cambio_24h": -27.2
     },
     {
       "palabra_clave": "postres",
-      "interes_promedio": 33.6,
-      "cambio_24h": -13.0
+      "interes_promedio": 28.8,
+      "cambio_24h": -23.3
     },
     {
       "palabra_clave": "restaurantes",
-      "interes_promedio": 23.8,
-      "cambio_24h": -16.3
+      "interes_promedio": 25.5,
+      "cambio_24h": -5.9
     },
     {
       "palabra_clave": "comida saludable",
-      "interes_promedio": 6.2,
-      "cambio_24h": 9.5
+      "interes_promedio": 3.1,
+      "cambio_24h": -14.2
     },
     {
       "palabra_clave": "street food",
@@ -29,18 +29,18 @@
   "moda": [
     {
       "palabra_clave": "ropa",
-      "interes_promedio": 72.0,
-      "cambio_24h": -5.5
+      "interes_promedio": 74.2,
+      "cambio_24h": -4.1
     },
     {
       "palabra_clave": "zapatos",
-      "interes_promedio": 63.2,
-      "cambio_24h": -5.7
+      "interes_promedio": 64.6,
+      "cambio_24h": -3.9
     },
     {
       "palabra_clave": "outfits",
-      "interes_promedio": 15.8,
-      "cambio_24h": -3.6
+      "interes_promedio": 27.4,
+      "cambio_24h": 21.5
     },
     {
       "palabra_clave": "tendencias de moda",
@@ -50,35 +50,35 @@
     {
       "palabra_clave": "streetwear",
       "interes_promedio": 0.0,
-      "cambio_24h": null
+      "cambio_24h": -100.0
     }
   ],
   "deporte": [
     {
       "palabra_clave": "gimnasio",
-      "interes_promedio": 61.4,
-      "cambio_24h": 5.5
+      "interes_promedio": 51.0,
+      "cambio_24h": -13.2
     },
     {
       "palabra_clave": "yoga",
-      "interes_promedio": 30.4,
-      "cambio_24h": -7.9
+      "interes_promedio": 44.4,
+      "cambio_24h": -2.1
     },
     {
       "palabra_clave": "running",
-      "interes_promedio": 20.4,
-      "cambio_24h": -25.7
+      "interes_promedio": 23.4,
+      "cambio_24h": -23.1
     },
     {
       "palabra_clave": "rutina de ejercicio",
-      "interes_promedio": 4.2,
-      "cambio_24h": null
+      "interes_promedio": 3.0,
+      "cambio_24h": 329.0
     },
     {
       "palabra_clave": "entrenamiento funcional",
       "interes_promedio": 0.0,
-      "cambio_24h": -100.0
+      "cambio_24h": null
     }
   ],
-  "actualizado": "2026-10-29 18:44"
+  "actualizado": "2026-10-30 18:20"
 }
