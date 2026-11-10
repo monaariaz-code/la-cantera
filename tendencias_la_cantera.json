@@ -2,23 +2,23 @@
   "gastronomia": [
     {
       "palabra_clave": "recetas",
-      "interes_promedio": 35.4,
-      "cambio_24h": -6.2
+      "interes_promedio": 37.6,
+      "cambio_24h": -15.2
     },
     {
       "palabra_clave": "postres",
-      "interes_promedio": 27.2,
-      "cambio_24h": -17.7
+      "interes_promedio": 29.3,
+      "cambio_24h": -12.5
     },
     {
       "palabra_clave": "restaurantes",
-      "interes_promedio": 21.2,
-      "cambio_24h": -30.2
+      "interes_promedio": 20.5,
+      "cambio_24h": -33.1
     },
     {
       "palabra_clave": "comida saludable",
-      "interes_promedio": 4.2,
-      "cambio_24h": 66.9
+      "interes_promedio": 5.1,
+      "cambio_24h": 37.5
     },
     {
       "palabra_clave": "street food",
@@ -29,18 +29,18 @@
   "moda": [
     {
       "palabra_clave": "ropa",
-      "interes_promedio": 63.0,
-      "cambio_24h": -5.9
+      "interes_promedio": 60.8,
+      "cambio_24h": -11.2
     },
     {
       "palabra_clave": "zapatos",
-      "interes_promedio": 60.7,
-      "cambio_24h": -4.1
+      "interes_promedio": 56.8,
+      "cambio_24h": -11.7
     },
     {
       "palabra_clave": "outfits",
-      "interes_promedio": 30.2,
-      "cambio_24h": -15.3
+      "interes_promedio": 9.2,
+      "cambio_24h": -41.8
     },
     {
       "palabra_clave": "tendencias de moda",
@@ -56,18 +56,18 @@
   "deporte": [
     {
       "palabra_clave": "gimnasio",
-      "interes_promedio": 61.0,
-      "cambio_24h": 3.0
+      "interes_promedio": 60.3,
+      "cambio_24h": 3.6
     },
     {
       "palabra_clave": "yoga",
-      "interes_promedio": 34.2,
-      "cambio_24h": 7.9
+      "interes_promedio": 35.0,
+      "cambio_24h": 9.2
     },
     {
       "palabra_clave": "running",
-      "interes_promedio": 24.3,
-      "cambio_24h": -17.1
+      "interes_promedio": 29.3,
+      "cambio_24h": -28.3
     },
     {
       "palabra_clave": "rutina de ejercicio",
@@ -77,8 +77,8 @@
     {
       "palabra_clave": "entrenamiento funcional",
       "interes_promedio": 0.0,
-      "cambio_24h": null
+      "cambio_24h": -100.0
     }
   ],
-  "actualizado": "2026-11-09 22:48"
+  "actualizado": "2026-11-10 20:06"
 }
